@@ -17,7 +17,7 @@
   flex-direction: column;
 }
 
-table,
+.container table,
 th,
 td {
   border: 1px solid black;
@@ -25,10 +25,10 @@ td {
   padding: 10px;
 }
 
-th {
+.container th {
   background-color: lightblue;
 }
-tr:nth-child(even) {
+.container tr:nth-child(even) {
   background-color: lightgrey;
 }
 

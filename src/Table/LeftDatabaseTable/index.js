@@ -1,49 +1,49 @@
-import Table from "react-bootstrap/Table";
-import { useDragSource } from "../utils";
 import data from "../../mockData";
 import { Connector } from "./Connector";
-
-interface Props {
-  maxWidth: number;
-}
-
+import "../table.css";
+import { headers } from "../utils";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const COUNTRY = "North America";
 const COUNTRY_DATA = data[COUNTRY];
-const { headers, rows } = COUNTRY_DATA;
+const { rows } = COUNTRY_DATA;
 
 const LeftDatabaseTable: React.FC<any> = (props) => {
   const { maxWidth, connections, setConnections } = props;
-
   return (
     <>
-      <div className="d-flex flex-column">
-        <h3>{COUNTRY}</h3>
-        <Table striped bordered hover size="sm" style={{ maxWidth }}>
+      <div className="container">
+        <table>
           <thead>
             <tr>
               {headers.map((header, i) => (
                 <th key={`header-${i}`}>{header}</th>
               ))}
+              <th>
+                <FontAwesomeIcon icon="link" />
+              </th>
             </tr>
           </thead>
           <tbody>
-            {rows.map((row, r) => {
+            {rows.map((row, rowIndex) => {
+              let tdIndex = 0;
+              const keyPrefix = "left-td";
+              const { name, col_type, description } = row;
               return (
-                <tr key={`row-${r}`}>
-                  {row.data.map((columnData, cd) => (
-                    <td key={`col-${cd}`}>{columnData}</td>
-                  ))}
+                <tr key={`left-row-${rowIndex}`}>
+                  <td key={`${keyPrefix}-${tdIndex++}`}>{name}</td>
+                  <td key={`${keyPrefix}-${tdIndex++}`}>{col_type}</td>
+                  <td key={`${keyPrefix}-${tdIndex++}`}>{description}</td>
                   <Connector
-                    key={`connector-${row.uuid}`}
+                    key={`${keyPrefix}-${tdIndex++}`}
                     setConnections={setConnections}
                     connections={connections}
-                    dragId={row.uuid}
+                    dragId={name}
                   />
                 </tr>
               );
             })}
           </tbody>
-        </Table>
+        </table>
       </div>
     </>
   );

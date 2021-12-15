@@ -4,7 +4,7 @@ import { ArcherElement } from "react-archer";
 import { memo } from "react";
 import { useDragSource } from "../utils";
 
-export const Connector = memo(function Connector(props) {
+export const Connector = memo((props) => {
   const { connections, dragId, setConnections } = props;
   const { dragRef, isDragging } = useDragSource({
     name: dragId,

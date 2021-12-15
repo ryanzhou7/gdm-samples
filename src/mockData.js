@@ -3,12 +3,15 @@ const data = {
     headers: ["Column name", "Type", "Description"],
     rows: [
       {
-        uuid: 1,
-        data: ["Profit", "INT", "..."],
+        name: "name1",
+        col_type: "type1",
+        description:
+          "description1 description1 description1 description1 description1 description1 ",
       },
       {
-        uuid: 2,
-        data: ["Loss", "INT", "..."],
+        name: "name2",
+        col_type: "type2",
+        description: "description1",
       },
     ],
   },
@@ -16,20 +19,14 @@ const data = {
     headers: ["Column name", "Type", "Description"],
     rows: [
       {
-        uuid: 3,
-        data: ["Income", "INT", "..."],
+        name: "sa-name1",
+        col_type: "sa-type1",
+        description: "sa-description1",
       },
       {
-        uuid: 4,
-        data: ["Deductions", "INT", "..."],
-      },
-      {
-        uuid: 5,
-        data: ["First Name", "VARCHAR(5)", "..."],
-      },
-      {
-        uuid: 6,
-        data: ["Last Name", "VARCHAR(5)", "..."],
+        name: "sa-name2",
+        col_type: "sa-type2",
+        description: "sa-description1",
       },
     ],
   },

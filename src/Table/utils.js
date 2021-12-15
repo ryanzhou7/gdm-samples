@@ -1,5 +1,6 @@
 import { useDrag } from "react-dnd";
 
+const headers = ["Name", "Column type", "Description"];
 function useDragSource({ name, setConnections }) {
   const [{ dropResult, isDragging }, dragRef] = useDrag(() => ({
     type: "left",
@@ -23,4 +24,4 @@ function useDragSource({ name, setConnections }) {
   return { isDragging, dragRef, dropResult };
 }
 
-export { useDragSource };
+export { useDragSource, headers };

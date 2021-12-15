@@ -26,15 +26,17 @@ export const Connector = memo((props) => {
             },
           ]}
         >
-          <Button variant="outline-danger" onClick={handleDelete}>
+          <Button className="outline-danger" onClick={handleDelete}>
             <FontAwesomeIcon icon="unlink" />
           </Button>
         </ArcherElement>
       ) : isDragging ? (
-        <></>
+        <Button>
+          <FontAwesomeIcon icon="spinner" />
+        </Button>
       ) : (
         <Button
-          variant="outline-success"
+          className="outline-success"
           style={{ cursor: "move" }}
           ref={dragRef}
         >

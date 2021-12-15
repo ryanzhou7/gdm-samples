@@ -10,6 +10,11 @@ import { ArcherContainer } from "react-archer";
 
 library.add(fas);
 
+const style = {
+  display: "flex",
+  padding: "20px",
+};
+
 function App() {
   const [connections, setConnections] = useState({});
   const connectionProps = {
@@ -21,7 +26,7 @@ function App() {
     <>
       <DndProvider backend={HTML5Backend}>
         <ArcherContainer strokeColor="blue" startMarker={true}>
-          <div className="d-flex p-3">
+          <div style={style}>
             <LeftDatabaseTable maxWidth={600} {...connectionProps} />
             <div style={{ width: 300 }}></div>
             <RightDatabaseTable maxWidth={600} {...connectionProps} />

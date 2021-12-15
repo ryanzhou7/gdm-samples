@@ -1,22 +1,19 @@
 import Table from "react-bootstrap/Table";
 import data from "../../mockData";
 import { Row } from "./Row";
-
-interface Props {
-  maxWidth: number;
-}
+import "../table.css";
+import { headers } from "../utils";
 
 const COUNTRY = "South America";
 const COUNTRY_DATA = data[COUNTRY];
-const { rows, headers } = COUNTRY_DATA;
+const { rows } = COUNTRY_DATA;
 
-const RightDatabaseTable: React.FC<any> = (props) => {
+const RightDatabaseTable = (props) => {
   const { maxWidth, connections } = props;
   return (
     <>
-      <div className="d-flex flex-column">
-        <h3>{COUNTRY}</h3>
-        <Table striped bordered hover size="sm" style={{ maxWidth }}>
+      <div className="container">
+        <table>
           <thead>
             <tr>
               {headers.map((header, i) => (
@@ -25,16 +22,16 @@ const RightDatabaseTable: React.FC<any> = (props) => {
             </tr>
           </thead>
           <tbody>
-            {rows.map((row, r) => (
+            {rows.map((row, rowIndex) => (
               <Row
-                key={`row-${r}`}
+                key={`row-${rowIndex}`}
                 row={row}
-                rowNum={r}
+                rowNum={rowIndex}
                 connections={connections}
               />
             ))}
           </tbody>
-        </Table>
+        </table>
       </div>
     </>
   );

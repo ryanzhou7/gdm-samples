@@ -24,7 +24,12 @@ const RightDatabaseTable: React.FC<any> = (props) => {
           </thead>
           <tbody>
             {COUNTRY_DATA.rows.map((row, r) => (
-              <Row row={row} rowNum={r} connections={connections} />
+              <Row
+                key={`row-${r}`}
+                row={row}
+                rowNum={r}
+                connections={connections}
+              />
             ))}
           </tbody>
         </Table>

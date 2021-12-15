@@ -22,7 +22,7 @@ export const Row = memo(function Row(props: any) {
     <tr ref={dropRef} key={`row-${rowNum}`}>
       {row.data.map((columnData, cd) => {
         return cd === 0 && connected(connections, uuid) ? (
-          <ArcherElement id={uuid}>
+          <ArcherElement key={`col-archer-${cd}`} id={uuid}>
             <td key={`col-${cd}`}>{columnData}</td>
           </ArcherElement>
         ) : (

@@ -8,6 +8,8 @@ interface Props {
 
 const COUNTRY = "South America";
 const COUNTRY_DATA = data[COUNTRY];
+const { rows, headers } = COUNTRY_DATA;
+
 const RightDatabaseTable: React.FC<any> = (props) => {
   const { maxWidth, connections } = props;
   return (
@@ -17,13 +19,13 @@ const RightDatabaseTable: React.FC<any> = (props) => {
         <Table striped bordered hover size="sm" style={{ maxWidth }}>
           <thead>
             <tr>
-              {COUNTRY_DATA.headers.map((header, i) => (
+              {headers.map((header, i) => (
                 <th key={`header-${i}`}>{header}</th>
               ))}
             </tr>
           </thead>
           <tbody>
-            {COUNTRY_DATA.rows.map((row, r) => (
+            {rows.map((row, r) => (
               <Row
                 key={`row-${r}`}
                 row={row}

@@ -9,6 +9,7 @@ interface Props {
 
 const COUNTRY = "North America";
 const COUNTRY_DATA = data[COUNTRY];
+const { headers, rows } = COUNTRY_DATA;
 
 const LeftDatabaseTable: React.FC<any> = (props) => {
   const { maxWidth, connections, setConnections } = props;
@@ -20,13 +21,13 @@ const LeftDatabaseTable: React.FC<any> = (props) => {
         <Table striped bordered hover size="sm" style={{ maxWidth }}>
           <thead>
             <tr>
-              {COUNTRY_DATA.headers.map((header, i) => (
+              {headers.map((header, i) => (
                 <th key={`header-${i}`}>{header}</th>
               ))}
             </tr>
           </thead>
           <tbody>
-            {COUNTRY_DATA.rows.map((row, r) => {
+            {rows.map((row, r) => {
               return (
                 <tr key={`row-${r}`}>
                   {row.data.map((columnData, cd) => (

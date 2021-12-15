@@ -4,14 +4,6 @@ import { ArcherElement } from "react-archer";
 import { memo } from "react";
 import { useDragSource } from "../utils";
 
-function deleteConnection(name, setConnections) {
-  return function () {
-    setConnections((prev) => {
-      const { [name]: remove, ...rest } = prev;
-      return rest;
-    });
-  };
-}
 export const Connector = memo(function Connector(props) {
   const { connections, dragId, setConnections } = props;
   const { dragRef, isDragging } = useDragSource({
@@ -22,7 +14,7 @@ export const Connector = memo(function Connector(props) {
 
   return (
     <td className="align-middle text-center" id={dragId}>
-      {connections.hasOwnProperty(dragId) ? (
+      {showArcher(dragId, connections) ? (
         <ArcherElement
           id={`archer-${dragId}`}
           relations={[
@@ -52,3 +44,15 @@ export const Connector = memo(function Connector(props) {
     </td>
   );
 });
+
+function deleteConnection(name, setConnections) {
+  return function () {
+    setConnections((prev) => {
+      const { [name]: remove, ...rest } = prev;
+      return rest;
+    });
+  };
+}
+function showArcher(id, connections) {
+  return connections.hasOwnProperty(id);
+}

@@ -13,18 +13,18 @@ const RightDatabaseTable = (props) => {
   return (
     <>
       <div className="container">
-        <table>
+        <table style={{ maxWidth }}>
           <thead>
             <tr>
               {headers.map((header, i) => (
-                <th key={`header-${i}`}>{header}</th>
+                <th key={`right-header-${i}`}>{header}</th>
               ))}
             </tr>
           </thead>
           <tbody>
             {rows.map((row, rowIndex) => (
               <Row
-                key={`row-${rowIndex}`}
+                key={`right-row-${rowIndex}`}
                 row={row}
                 rowNum={rowIndex}
                 connections={connections}

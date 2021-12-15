@@ -20,7 +20,7 @@ export const Row = memo(function Row(props) {
 
   let tdIndex = 0;
   return (
-    <tr ref={dropRef} key={`row-${rowIndex}`} className={rowClassName}>
+    <tr ref={dropRef} key={`right-row-${rowIndex}`} className={rowClassName}>
       {renderTD(tdIndex++, id, name, connected)}
       {renderTD(tdIndex++, id, col_type, connected)}
       {renderTD(tdIndex++, id, description, connected)}

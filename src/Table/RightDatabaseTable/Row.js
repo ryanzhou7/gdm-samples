@@ -9,40 +9,29 @@ export const Row = memo(function Row(props) {
   const id = name;
   const [{ canDrop, isOver }, dropRef] = useDrop(() => ({
     accept: "left",
-    drop: () => ({ name }),
+    drop: () => ({ name: id }),
     collect: (monitor) => ({
       isOver: monitor.isOver(),
       canDrop: monitor.canDrop(),
     }),
   }));
   const connected = isConnected(connections, id);
-  const rowClassName = canDrop && !connected ? "bg-success" : "";
-
-  let tdIndex = 0;
+  const rowClassName = canDrop && !connected ? "highlight" : "";
   return (
     <tr ref={dropRef} key={`right-row-${rowIndex}`} className={rowClassName}>
-      {renderTD(tdIndex++, id, name, connected)}
-      {renderTD(tdIndex++, id, col_type, connected)}
-      {renderTD(tdIndex++, id, description, connected)}
+      {isConnected ? (
+        <ArcherElement id={id}>
+          <td> {name}</td>
+        </ArcherElement>
+      ) : (
+        <td> {name}</td>
+      )}
+      <td> {col_type}</td>
+      <td> {description}</td>
     </tr>
   );
 });
 
-const tdKeyPrefix = "right-td";
-function renderTD(index, id, text, connected) {
-  return showArcher(index, connected) ? (
-    <ArcherElement key={`col-archer-${index}`} id={id}>
-      <td key={`${tdKeyPrefix}-${index}`}> {text}</td>
-    </ArcherElement>
-  ) : (
-    <td key={`${tdKeyPrefix}-${index}`}> {text}</td>
-  );
-}
-
 function isConnected(connections, id) {
   return Object.values(connections).includes(id);
-}
-
-function showArcher(columnNumber, connected) {
-  return connected & (columnNumber === 0);
 }

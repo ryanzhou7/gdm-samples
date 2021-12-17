@@ -12,8 +12,19 @@ export const Connector = memo((props) => {
   });
   const handleDelete = deleteConnection(dragId, setConnections);
 
+  const tdStyle = {
+    textAlign: "center",
+    verticalAlign: "middle",
+  };
   return (
-    <td className="align-middle text-center" id={dragId}>
+    <td
+      className="align-middle text-center"
+      id={dragId}
+      style={{
+        textAlign: "center",
+        verticalAlign: "middle",
+      }}
+    >
       {showArcher(dragId, connections) ? (
         <ArcherElement
           id={`archer-${dragId}`}

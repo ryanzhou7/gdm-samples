@@ -13,6 +13,7 @@ library.add(fas);
 const style = {
   display: "flex",
   padding: "20px",
+  justifyContent: "space-between",
 };
 
 function App() {
@@ -27,9 +28,9 @@ function App() {
       <DndProvider backend={HTML5Backend}>
         <ArcherContainer strokeColor="blue" startMarker={true}>
           <div style={style}>
-            <LeftDatabaseTable maxWidth={600} {...connectionProps} />
-            <div style={{ width: 300 }}></div>
-            <RightDatabaseTable maxWidth={600} {...connectionProps} />
+            <LeftDatabaseTable {...connectionProps} />
+            <div style={{ minWidth: 50 }}></div>
+            <RightDatabaseTable {...connectionProps} />
           </div>
         </ArcherContainer>
       </DndProvider>

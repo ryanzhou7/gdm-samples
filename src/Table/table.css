@@ -9,7 +9,7 @@
 }
 
 .highlight {
-  box-shadow: 0px 0px 15px 5px rgba(66, 186, 150, 0.75);
+  box-shadow: 0px 0px 15px 5px rgba(66, 186, 150, 0.75) !important;
 }
 
 .container {

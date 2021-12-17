@@ -12,7 +12,7 @@ const LeftDatabaseTable = (props) => {
   return (
     <>
       <div className="container">
-        <table style={{ maxWidth }}>
+        <table>
           <thead>
             <tr>
               {headers.map((header, i) => (
